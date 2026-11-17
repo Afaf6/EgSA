@@ -1,0 +1,174 @@
+/* ConfigStudio – scoped styles (prefix cs-). Uses the app's --egse-* tokens with dark fallbacks. */
+.cs-page { --cs-bg: var(--egse-bg-panel, #0b1a33); --cs-bg-2: var(--egse-bg-soft, #0e2140); --cs-border: var(--egse-border-soft, rgba(120,160,220,.18));
+  --cs-text: var(--egse-text-primary, #e6edf7); --cs-muted: var(--egse-text-secondary, #8ea3c2); --cs-accent: #1e7bff; --cs-ok: #2fd27a; --cs-bad: #ff5468; --cs-warn: #f5b942;
+  color: var(--cs-text); }
+.cs-card { background: var(--cs-bg); border: 1px solid var(--cs-border); border-radius: 10px; }
+.cs-crumbs { font-size: .78rem; color: var(--cs-muted); display: flex; gap: .45rem; flex-wrap: wrap; align-items: center; }
+.cs-crumbs b { color: var(--cs-text); font-weight: 500; }
+.cs-title { font-size: 1.35rem; font-weight: 600; margin: 0; }
+.cs-sub { color: var(--cs-muted); font-size: .85rem; margin: 0; }
+.cs-status-box { background: var(--cs-bg); border: 1px solid var(--cs-border); border-radius: 8px; padding: .4rem .85rem; min-width: 150px; }
+.cs-status-box small { display: block; color: var(--cs-muted); font-size: .72rem; }
+.cs-dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--cs-ok); margin-right: .45rem; vertical-align: -1px; }
+.cs-dot.off { border-color: var(--cs-muted); }
+.cs-btn { border-radius: 7px; padding: .42rem .95rem; font-size: .84rem; font-weight: 500; border: 1px solid var(--cs-border); background: transparent; color: var(--cs-text); display: inline-flex; align-items: center; gap: .4rem; cursor: pointer; white-space: nowrap; }
+.cs-btn:hover:not(:disabled) { background: rgba(120,160,220,.1); }
+.cs-btn:disabled { opacity: .5; cursor: not-allowed; }
+.cs-btn.primary { background: var(--cs-accent); border-color: var(--cs-accent); color: #fff; }
+.cs-btn.primary:hover:not(:disabled) { background: #3a8bff; }
+.cs-btn.outline-blue { border-color: var(--cs-accent); color: #5ea2ff; }
+.cs-btn.danger { border-color: var(--cs-bad); color: var(--cs-bad); }
+.cs-btn.danger:hover:not(:disabled) { background: rgba(255,84,104,.12); }
+.cs-btn.sm { padding: .28rem .65rem; font-size: .78rem; }
+.cs-select-card { display: flex; align-items: center; gap: .8rem; padding: .7rem .9rem; flex: 1 1 220px; min-width: 0; }
+.cs-select-ico { width: 38px; height: 38px; border-radius: 8px; background: var(--cs-bg-2); display: grid; place-items: center; color: #6aa8ff; flex: none; }
+.cs-select-card label { display: block; font-size: .72rem; color: var(--cs-muted); margin: 0; }
+.cs-select-card select, .cs-select-card .cs-static { width: 100%; background: transparent; border: 0; color: var(--cs-text); font-weight: 600; font-size: .95rem; padding: 0; outline: 0; text-overflow: ellipsis; }
+.cs-select-card select option { background: #0b1a33; color: #e6edf7; }
+.cs-frame-info { padding: 1rem 1.2rem; }
+.cs-frame-info h3 { font-size: .95rem; margin: 0 0 .8rem; display: flex; align-items: center; gap: .5rem; }
+.cs-kv small { display: block; color: var(--cs-muted); font-size: .74rem; margin-bottom: .2rem; }
+.cs-kv span.v { font-size: .9rem; }
+.cs-hex { display: inline-block; min-width: 28px; text-align: center; padding: .12rem .4rem; margin: 0 .22rem .22rem 0; border-radius: 5px; background: var(--cs-bg-2); border: 1px solid var(--cs-border); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .78rem; }
+.cs-tabs { display: flex; gap: 1.6rem; border-bottom: 1px solid var(--cs-border); padding: 0 .4rem; }
+.cs-tab { background: none; border: 0; color: var(--cs-muted); padding: .7rem .1rem; font-size: .9rem; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.cs-tab.active { color: #5ea2ff; border-bottom-color: var(--cs-accent); }
+.cs-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; align-items: start; }
+.cs-layout.has-details { grid-template-columns: minmax(0, 1fr) 320px; }
+@media (max-width: 1199px) { .cs-layout, .cs-layout.has-details { grid-template-columns: 1fr; } }
+.cs-toolbar { display: flex; gap: .6rem; padding: .85rem; flex-wrap: wrap; align-items: center; }
+.cs-input, .cs-field { background: var(--cs-bg-2); border: 1px solid var(--cs-border); color: var(--cs-text); border-radius: 7px; padding: .42rem .7rem; font-size: .84rem; outline: 0; min-width: 0; }
+.cs-input:focus, .cs-field:focus { border-color: var(--cs-accent); box-shadow: 0 0 0 2px rgba(30,123,255,.2); }
+.cs-field option { background: #0b1a33; color: #e6edf7; }
+.cs-search { position: relative; flex: 1 1 200px; max-width: 280px; }
+.cs-search input { width: 100%; padding-left: 2rem; }
+.cs-search svg { position: absolute; left: .6rem; top: 50%; transform: translateY(-50%); color: var(--cs-muted); }
+.cs-table-wrap { overflow-x: auto; }
+.cs-table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+.cs-table th { text-align: left; color: var(--cs-muted); font-weight: 500; font-size: .76rem; padding: .65rem .7rem; border-top: 1px solid var(--cs-border); border-bottom: 1px solid var(--cs-border); background: rgba(120,160,220,.05); white-space: nowrap; }
+.cs-table td { padding: .6rem .7rem; border-bottom: 1px solid var(--cs-border); white-space: nowrap; }
+.cs-table tbody tr { cursor: pointer; }
+.cs-table tbody tr:hover { background: rgba(120,160,220,.07); }
+.cs-table tbody tr.sel { background: rgba(30,123,255,.14); box-shadow: inset 3px 0 0 var(--cs-accent); }
+.cs-mono { font-family: ui-monospace, Menlo, Consolas, monospace; }
+.cs-badge { display: inline-block; padding: .1rem .6rem; border-radius: 5px; font-size: .72rem; font-weight: 600; }
+.cs-badge.ok { background: rgba(47,210,122,.16); color: var(--cs-ok); }
+.cs-badge.off { background: rgba(255,84,104,.16); color: var(--cs-bad); }
+.cs-icon-btn { background: none; border: 0; padding: .2rem .3rem; color: #6aa8ff; cursor: pointer; border-radius: 5px; display: inline-grid; place-items: center; }
+.cs-icon-btn:hover { background: rgba(120,160,220,.15); }
+.cs-icon-btn.del { color: var(--cs-bad); }
+.cs-foot { display: flex; justify-content: space-between; align-items: center; padding: .8rem 1rem; flex-wrap: wrap; gap: .6rem; font-size: .8rem; color: var(--cs-muted); }
+.cs-pager { display: flex; gap: .35rem; }
+.cs-pager button { min-width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--cs-border); background: transparent; color: var(--cs-text); cursor: pointer; }
+.cs-pager button.on { background: var(--cs-accent); border-color: var(--cs-accent); color: #fff; }
+.cs-pager button:disabled { opacity: .4; cursor: not-allowed; }
+.cs-details { padding: 1rem 1.1rem; position: sticky; top: 1rem; }
+.cs-details h4 { font-size: .95rem; margin: 0 0 .9rem; }
+.cs-details .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem 1rem; }
+.cs-details h5 { font-size: .85rem; margin: 1.1rem 0 .6rem; padding-top: .9rem; border-top: 1px solid var(--cs-border); }
+.cs-limit-bar { height: 5px; border-radius: 4px; background: linear-gradient(90deg, #ff5468 0%, #f5b942 18%, #2fd27a 38%, #8ea3c2 50%, #2fd27a 62%, #f5b942 82%, #ff5468 100%); margin: .6rem 0 .35rem; }
+.cs-limit-labels { display: flex; justify-content: space-between; font-size: .68rem; color: var(--cs-muted); text-align: center; }
+.cs-limit-labels b { display: block; color: var(--cs-text); font-weight: 500; font-size: .74rem; }
+.cs-preview { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .72rem; color: var(--cs-muted); border: 1px dashed var(--cs-border); border-radius: 6px; padding: .4rem .6rem; margin-top: .6rem; line-height: 1.5; }
+.cs-quick { display: flex; gap: .5rem; }
+.cs-quick .cs-btn { flex: 1; justify-content: center; padding: .4rem .3rem; font-size: .76rem; }
+.cs-notice { padding: .55rem .9rem; border-radius: 8px; font-size: .85rem; border: 1px solid var(--cs-border); display: inline-flex; gap: .4rem; align-self: flex-start; }
+.cs-notice.nominal { background: rgba(47,210,122,.1); color: var(--cs-ok); border-color: rgba(47,210,122,.3); }
+.cs-notice.alarm { background: rgba(255,84,104,.1); color: var(--cs-bad); border-color: rgba(255,84,104,.3); }
+.cs-notice.pending { background: rgba(30,123,255,.1); color: #5ea2ff; border-color: rgba(30,123,255,.3); }
+.cs-empty { padding: 3rem 1rem; text-align: center; color: var(--cs-muted); }
+.cs-overlay { position: fixed; inset: 0; background: rgba(2,8,20,.7); z-index: 1060; display: grid; place-items: center; padding: 1rem; }
+.cs-modal { width: min(760px, 100%); max-height: 92vh; overflow: auto; background: var(--cs-bg); border: 1px solid var(--cs-border); border-radius: 12px; }
+.cs-modal header, .cs-modal footer { display: flex; justify-content: space-between; align-items: center; padding: .9rem 1.2rem; border-bottom: 1px solid var(--cs-border); }
+.cs-modal footer { border-bottom: 0; border-top: 1px solid var(--cs-border); justify-content: flex-end; gap: .6rem; }
+.cs-modal .body { padding: 1.1rem 1.2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: .85rem; }
+.cs-modal .body .span3 { grid-column: 1 / -1; }
+@media (max-width: 640px) { .cs-modal .body { grid-template-columns: 1fr 1fr; } }
+.cs-modal label { display: block; font-size: .74rem; color: var(--cs-muted); margin-bottom: .25rem; }
+.cs-modal .cs-field { width: 100%; }
+.cs-range-row { display: grid; grid-template-columns: 82px 1fr 1fr; gap: .5rem; align-items: center; margin-bottom: .4rem; }
+.cs-range-row .tag { text-align: center; border-radius: 5px; font-size: .7rem; font-weight: 600; padding: .3rem 0; }
+.cs-split { display: flex; gap: 1rem; }
+.cs-textarea { width: 100%; min-height: 180px; resize: vertical; }
+
+/* ---- self-contained layout helpers (same names as Bootstrap utilities, scoped to the page) ---- */
+.cs-page .d-flex { display: flex; }
+.cs-page .flex-wrap { flex-wrap: wrap; }
+.cs-page .flex-column { flex-direction: column; }
+.cs-page .align-items-center { align-items: center; }
+.cs-page .align-items-start { align-items: flex-start; }
+.cs-page .justify-content-between { justify-content: space-between; }
+.cs-page .gap-2 { gap: .5rem; }
+.cs-page .gap-3 { gap: 1rem; }
+.cs-page .gap-4 { gap: 1.5rem; }
+.cs-page .pb-4 { padding-bottom: 1.5rem; }
+.cs-page .mt-2 { margin-top: .5rem; }
+.cs-page .mb-0 { margin-bottom: 0; }
+.cs-page .mb-1 { margin-bottom: .25rem; }
+.cs-page .d-block { display: block; }
+.cs-page .w-100 { width: 100%; }
+.cs-form-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; max-width: 760px; }
+.cs-form-grid .c6 { grid-column: span 6; } .cs-form-grid .c3 { grid-column: span 3; } .cs-form-grid .c12 { grid-column: 1 / -1; }
+@media (max-width: 640px) { .cs-form-grid .c6, .cs-form-grid .c3 { grid-column: 1 / -1; } }
+.cs-toolbar select.cs-field { flex: none; }
+.cs-select-card select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+.cs-select-card select:disabled { cursor: default; opacity: .7; }
+.cs-input, .cs-field, .cs-textarea { box-sizing: border-box; }
+
+/* Range tags for ParameterEditModal */
+.cs-range-tag-normal {
+  background: rgba(47, 210, 122, 0.16);
+  color: #2fd27a;
+}
+.cs-range-tag-warning {
+  background: rgba(245, 185, 66, 0.16);
+  color: #f5b942;
+}
+.cs-range-tag-critical {
+  background: rgba(255, 84, 104, 0.16);
+  color: #ff8080;
+}
+
+/* Light Mode Overrides for High Contrast (WCAG AA >= 4.5:1) */
+:root[data-theme="light"] .cs-notice.nominal {
+  background: rgba(6, 95, 70, 0.12);
+  color: #065f46;
+  border-color: rgba(6, 95, 70, 0.35);
+}
+
+:root[data-theme="light"] .cs-notice.alarm {
+  background: rgba(153, 27, 27, 0.12);
+  color: #991b1b;
+  border-color: rgba(153, 27, 27, 0.35);
+}
+
+:root[data-theme="light"] .cs-badge.ok {
+  background: rgba(6, 95, 70, 0.12);
+  color: #065f46;
+}
+
+:root[data-theme="light"] .cs-badge.off {
+  background: rgba(185, 28, 28, 0.14);
+  color: #b91c1c;
+}
+
+:root[data-theme="light"] .cs-tab.active,
+:root[data-theme="light"] .cs-btn.outline-blue {
+  color: #1d4ed8;
+}
+
+:root[data-theme="light"] .cs-range-tag-normal {
+  background: rgba(6, 95, 70, 0.12);
+  color: #065f46;
+}
+
+:root[data-theme="light"] .cs-range-tag-warning {
+  background: rgba(154, 52, 18, 0.14);
+  color: #9a3412;
+}
+
+:root[data-theme="light"] .cs-range-tag-critical {
+  background: rgba(185, 28, 28, 0.14);
+  color: #b91c1c;
+}
+
